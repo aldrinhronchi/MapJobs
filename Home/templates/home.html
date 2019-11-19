@@ -17,7 +17,7 @@
                 <p>Olá {{ user.username }}</p>
                 <a href="{% url 'logout' %}" class="btn btn-warning">Sair</a>
             {% else %}
-                <a href="{% url 'login' %}" class="btn btn-primary">Entrar</a>
+                <a href="{% url 'login' %}" class="btn btn-secondary">Entrar</a>
             {% endif%}
         </div>
     </div>
