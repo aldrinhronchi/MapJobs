@@ -1,0 +1,60 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Lista de Usuarios {% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col">
+
+
+        </div>
+        <div class="col-6">
+                <h3>Listagem de Usuarios</h3>
+               <ul class="list-group">
+                    {% for user in users %}
+                        <li class="list-group-item">
+                            <a href="{% url 'user_update' user.id %}">{{ user.first_name }}</a>
+                            <a href="{% url 'user_delete' user.id %}" class="trash-item">
+
+                                <i class="fas fa-trash"></i>
+                            </a>
+
+                        </li>
+                    {% endfor %}
+
+
+                </ul>
+                <br>
+                <a href="{% url 'user_new' %}" class="btn btn-primary">Novo</a>
+
+
+        </div>
+        <div class="col">
+            {% if user.is_authenticated %}
+                <p>Olá {{ user.username }}
+                    <a href="{% url 'logout' %}"><span class="badge badge-dark">Sair</span></a></p>
+            {% endif %}
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Desenvolvimento django Python</span>
+        </div>
+    </footer>
+
+{% endblock %}

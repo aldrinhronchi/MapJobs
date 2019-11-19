@@ -1,0 +1,61 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Lista de Prestadores de Serviço {% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col">
+
+
+        </div>
+        <div class="col-6">
+                <h3>Listagem de Prestadores</h3>
+               <ul class="list-group">
+                    {% for aval in avaliacao %}
+                        <li class="list-group-item">
+                            <a href="{% url 'avaliacao_update' aval.id %}">{{ aval.prestador }}</a>
+                            <a href="{% url 'avaliacao_delete' aval.id %}" class="trash-item">
+
+                                <i class="fas fa-trash"></i>
+                            </a>
+
+                        </li>
+                    {% endfor %}
+
+
+                </ul>
+                <br>
+
+                <a href="{% url 'avaliacao_new' %}" class="btn btn-primary">Avaliar</a>
+
+
+        </div>
+        <div class="col">
+            {% if user.is_authenticated %}
+                <p>Olá {{ user.username }}
+                    <a href="{% url 'logout' %}"><span class="badge badge-dark">Sair</span></a></p>
+            {% endif %}
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Desenvolvimento django Python</span>
+        </div>
+    </footer>
+
+{% endblock %}
