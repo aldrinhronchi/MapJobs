@@ -18,7 +18,7 @@ def user_new(request):
     if form.is_valid():
         form.save()
         return redirect('user_list')
-    return render(request, 'user_form.html', {'form': form})
+    return render(request, 'cadastro.html', {'form': form})
 
 
 @login_required

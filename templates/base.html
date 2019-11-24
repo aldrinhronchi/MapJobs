@@ -1,32 +1,69 @@
 {% load static %}
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <link rel="stylesheet" href="{% static 'stick-footer.css' %}">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>MapJobs</title>
+	<link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="static/img/favicon.ico" type="image/x-icon">
 
-    <title>{% block title %}{% endblock %}</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="static/css/stylish-portfolio.min.css" rel="stylesheet">
+
 </head>
-<body>
-    <div class="container">
-        <div class="jumbotron">
-            {% block main %}
+<body id="page-top">
+	<div>
+            <nav class="navbar navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#"><img style="width:65px;
+                    height:65px;" src="static/img/logo-1.png"></a>
+                    <div class="input-group col-9">
+                            <input type="text" class="form-control" placeholder="O que esta procurando?"  aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                            </div>
+                          </div>
+                    <button class="menu-toggler" type="button" data-toggle="collapse"  aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="menu-toggle"><i class="fas fa-bars"></i> </span>
+                    </button>
+            </nav>
+		</div>
+
+	<nav style="background-color: #EEEEEE" id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<li class="sidebar-brand" style="background-color: #EEE9E1
+			">
+				<a class="js-scroll-trigger" href="#">MapJobs</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="{% url 'login' %}">Login</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a class="js-scroll-trigger" href="{% url 'user_new' %}">Cadastro</a>
+			</li>
+		</ul>
+	</nav>
+	
+</div>
+<!--Base acaba aqui-->
 
 
-            {% endblock%}
-        </div>
 
-    </div>
-    {% block footer%}
 
-    {% endblock %}
+   	<!-- Plugins JavaScript -->
+	<script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="static/js/stylish-portfolio.min.js"></script>
+
+
 </body>
-</html>
+ </html>
+ 
+				
