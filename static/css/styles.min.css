@@ -1,5 +1,5 @@
 .header-dark {
-	background: url(../../img/mountain_bg.jpg) #444;
+	background: url(static/img/mountain_bg.jpg) #444;
 	background-size: cover;
 	padding-bottom: 80px
 }
@@ -166,7 +166,7 @@
 
 .login-dark {
 	height: 1000px;
-	background: url(../img/star-sky.jpg) #475d62;
+	background: url(static/img/star-sky.jpg) #475d62;
 	background-size: cover;
 	position: relative
 }

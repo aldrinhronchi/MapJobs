@@ -1,35 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
 
-{% load bootstrap %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MapJobs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!--<link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="static/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="static/css/styles.min.css">
+</head>
 
-{% block title %} Página de login {% endblock %}
+<body>
+    <div>
+        <!-- chama o base-->
+    </div>
+    <div class="login-dark">
+        <form method="post">
+            {% csrf_token %}
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><img style="width:2   50px;
+                height:250px;" src=".../img/logo-1.png"></div>
+            <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Login"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Senha"></div><a class="text-left forgot" href="#">Esqueci minha senha</a>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Entrar</button><button class="btn btn-secondary btn-block" type="submit">Cadastrar</button></div>
+        </form>
+    </div>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
 
-{% block main %}
-
-
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form|bootstrap }}
-    <button type="submit" class="btn btn-info">Login</button>
-
-
-{% endblock %}
-
-        {% block footer %}
-        <footer class="footer">
-            <div class="container">
-                <span class="text-muted">Map Jobs</span>
-            </div>
-        </footer>
-
-        {% endblock %}
-
-
-
-
-
-
-
-
-
-</form>
+</html>
