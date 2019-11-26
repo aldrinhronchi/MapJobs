@@ -1,8 +1,12 @@
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+
 from .models import User, PrestadorServico, Avaliacao, Qualificacao
 from .forms import UserForm, PrestadorForm, AvaliacaoForm, QualificacaoForm
+
+
 # Create your views here.
 
 
@@ -12,13 +16,18 @@ def user_list(request):
     return render(request, 'user.html', {'users': persons})
 
 
-@login_required
-def user_new(request):
-    form = UserForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        form.save()
-        return redirect('user_list')
-    return render(request, 'cadastro.html', {'form': form})
+class CriaUser(CreateView):
+    template_name = 'cadastro.html'
+    model = User()
+    fields = '__all__'
+    success_url = reverse_lazy("home")
+
+
+class CriaPrestador(CreateView):
+    template_name = 'prestadores.html'
+    model = PrestadorServico()
+    fields = '__all__'
+    success_url = reverse_lazy("home")
 
 
 @login_required
@@ -38,7 +47,8 @@ def user_delete(request, id):
     if request.method == 'POST':
         person.delete()
         return redirect('user_list')
-    return render(request, 'user_delete_confirm.html', {'user':person})
+    return render(request, 'user_delete_confirm.html', {'user': person})
+
 
 # prestador de serviço views
 @login_required
@@ -76,7 +86,6 @@ def prestador_delete(request, id):
     return render(request, 'prestador_delete_confirm.html', {'prestador': person})
 
 
-
 # Avaliação dos prestadores de serviço
 
 @login_required
@@ -112,8 +121,6 @@ def avaliacao_delete(request, id):
         avaliacao.delete()
         return redirect('avaliacao_list')
     return render(request, 'avaliacao_delete_confirm.html', {'avaliacao': avaliacao})
-
-
 
 
 # Qualificação dos prestadores de serviço
@@ -160,4 +167,3 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
-

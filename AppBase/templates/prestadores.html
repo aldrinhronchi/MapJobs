@@ -40,14 +40,7 @@
                 <div class="form-group"><input class="form-control" type="file" name="photo" placeholder="Foto"></div>
 
                 <div class="form-group"></div>
-                <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">Aceito os termos de uso.</label></div>
 
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Avançar</button></div>
-                {% if user.is_authenticated %}
-                    <a class="already" href="{% url 'home' %}">Já tem uma conta? Faça Login aqui.</a>
-                {% else %}
-                    <a class="already" href="{% url 'login' %}">Já tem uma conta? Faça Login aqui.</a>
-                {% endif%}
 
             </form>
         </div>
