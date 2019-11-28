@@ -1,32 +1,19 @@
+{% extends 'base.html' %}
 {% load static %}
+
+
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>MapJobs</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!--<link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/.../fonts/fontawesome-all.min.css">-->
-    <link rel="stylesheet" href="{% static 'fonts/fontawesome-all.min.css' %}">
-     <link rel="stylesheet" href="{% static 'fonts/ionicons.min.css' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
-    <!--<link rel="stylesheet" href="static/.../css/styles.min.css">
-
-    <link rel="stylesheet" href="static/.../fonts/ionicons.min.css">-->
-    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
-
-</head>
 
 <body>
-    <div>
-        <!-- chama o base-->
-    </div>
+
+{% block main %}
+
+
+
+
     <div class="login-dark">
-
-
-
         <form method="post">
             {% csrf_token %}
             <h2 class="sr-only">Login Form</h2>
@@ -35,16 +22,12 @@
 
             <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Login"></div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Senha"></div><a class="text-left forgot" href="#">Esqueci minha senha</a>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Entrar</button><button class="btn btn-secondary btn-block" type="submit">Cadastrar</button></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Entrar</button><button class="btn btn-dark btn-block" type="submit">Cadastrar</button></div>
         </form>
 
     </div>
-    <script src="{% static '/js/jquery.min.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/popper.min.js"></script>
-    <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <!--<script src="static/.../js/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/popper.min.js"></script>
-    <script src="static/.../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+
+{% endblock%}
 </body>
 
 </html>

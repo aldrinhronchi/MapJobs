@@ -17,11 +17,12 @@ from .views import qualificacao_list
 from .views import qualificacao_update
 from .views import qualificacao_delete
 from .models import User, PrestadorServico
+from .views import resultado, perfil
 
 urlpatterns = [
 
-    path('list/', user_list, name="user_list"),
-    path('prest/list/', prestador_list, name="prestador_list"),
+    path('user/list/', perfil, name="profile"),
+    path('prest/list/', resultado, name="result"),
     path('prest/list/qual/', qualificacao_list, name="qualificacao_list"),
 
     path('prest/aval/list/', avaliacao_list, name="avaliacao_list"),

@@ -15,6 +15,18 @@ def user_list(request):
     persons = User.objects.all()
     return render(request, 'user.html', {'users': persons})
 
+#temporario
+@login_required
+def resultado(request):
+
+    return render(request, 'resultado.html')
+
+
+@login_required
+def perfil(request):
+
+    return render(request, 'profile.html')
+
 
 class CriaUser(CreateView):
     template_name = 'cadastro.html'

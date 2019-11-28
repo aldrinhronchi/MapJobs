@@ -1,7 +1,5 @@
-{% load static %}
-
 .header-dark {
-	background: url({% static '/img/mountain_bg.jpg' %}) #444;
+	background: url(../img/mountain_bg.jpg) #444;
 	background-size: cover;
 	padding-bottom: 80px
 }
@@ -168,14 +166,14 @@
 
 .login-dark {
 	height: 1000px;
-	background: url(../img/star-sky.jpg);
+	background: url(../img/star-sky.jpg) #475d62;
 	background-size: cover;
 	position: relative
 }
 
 .login-dark form {
 	max-width: 320px;
-	width: 85%;
+	width: 90%;
 	background-color: #1e2833;
 	padding: 40px;
 	border-radius: 4px;
@@ -439,10 +437,8 @@
 	display: table-cell;
 	width: auto;
 	background: url(../img/logo.png);
-
-	background-size: cover;
-	position: relative
-
+	background: url(../img/logo.png);
+	background-size: cover
 }
 
 .register-photo .form-container {

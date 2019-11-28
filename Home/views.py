@@ -7,7 +7,7 @@ def home(request):
     return render(request, 'index.html')
 
 
-def my_logout (request):
+def my_logout(request):
     logout(request)
     return redirect('home')
 
