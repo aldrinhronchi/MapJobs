@@ -1,0 +1,1 @@
+web: gunicorn MapJobs.wsgi --log-file -
