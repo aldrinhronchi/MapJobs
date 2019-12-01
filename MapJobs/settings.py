@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'AppBase',
     'bootstrapform',
     'MapJobs',
+
 ]
 
 MIDDLEWARE = [

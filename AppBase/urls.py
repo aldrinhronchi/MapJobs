@@ -21,6 +21,10 @@ from .views import resultado, perfil, usuario_list
 
 urlpatterns = [
 
+    path('user/new/', CriaUser.as_view(model=User), name="cadastra_user"),
+    path('prest/new/', CriaPrestador.as_view(model=PrestadorServico), name="prestador_new"),
+
+
     path('user/list/', perfil, name="profile"),
     path('user/lista/', usuario_list, name="lista"),
 
@@ -31,8 +35,7 @@ urlpatterns = [
 
     path('prest/qual/list/', qualificacao_list, name="qualificacao_list"),
 
-    path('user/new/', CriaUser.as_view(model=User), name="cadastra_user"),
-    path('prest/new/', CriaPrestador.as_view(model=PrestadorServico), name="prestador_new"),
+
 
     path('prest/aval/new/', avaliacao_new, name="avaliacao_new"),
     path('prest/qual/new/', qualificacao_new, name="qualificacao_new"),

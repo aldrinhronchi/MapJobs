@@ -1,3 +1,4 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
@@ -5,6 +6,7 @@ from django.views.generic import CreateView
 
 from .models import User, PrestadorServico, Avaliacao, Qualificacao
 from .forms import UserForm, PrestadorForm, AvaliacaoForm, QualificacaoForm
+
 
 
 # Create your views here.
@@ -33,6 +35,7 @@ class CriaUser(CreateView):
     model = User()
     fields = '__all__'
     success_url = reverse_lazy("home")
+
 
 
 class CriaPrestador(CreateView):

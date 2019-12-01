@@ -48,7 +48,7 @@
 				{% if user.is_authenticated %}
 					<li class="sidebar-nav-item">
 
-						<a class="js-scroll-trigger" href="{% url 'lista' %}">Profile</a>
+						<a class="js-scroll-trigger" href="{% url 'profile' %}">Profile</a>
 
 					</li>
 					<li class="sidebar-nav-item">
@@ -59,7 +59,9 @@
 					</li>
 				{% else %}
 
-
+					<li>
+							<a class="js-scroll-trigger" href="{% url 'cadastrar_usuario' %}">Cadastrar</a>
+					</li>
 
 				{% endif%}
 					<li class="sidebar-nav-item">
