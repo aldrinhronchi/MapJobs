@@ -14,11 +14,8 @@
                <ul class="list-group">
                     {% for user in users %}
                         <li class="list-group-item">
-                            <a href="{% url 'user_update' user.id %}">{{ user.first_name }}</a>
-                            <a href="{% url 'user_delete' user.id %}" class="trash-item">
+                            {{ user.first_name }}
 
-                                <i class="fas fa-trash"></i>
-                            </a>
 
                         </li>
                     {% endfor %}
@@ -26,7 +23,7 @@
 
                 </ul>
                 <br>
-                <a href="{% url 'user_new' %}" class="btn btn-primary">Novo</a>
+
 
 
         </div>

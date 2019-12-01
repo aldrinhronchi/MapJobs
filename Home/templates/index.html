@@ -33,20 +33,10 @@
 			">
 					<a class="js-scroll-trigger" href="{% url 'home' %}">MapJobs</a>
 				</li>
+
 				<li class="sidebar-nav-item">
 					{% if user.is_authenticated %}
-						<a class="js-scroll-trigger" href="{% url 'logout' %}">Logout</a>
 
-            		{% else %}
-              			<a class="js-scroll-trigger" href="{% url 'login' %}">Login</a>
-            		{% endif%}
-
-
-
-				</li>
-				<li class="sidebar-nav-item">
-					{% if user.is_authenticated %}
-						<a class="js-scroll-trigger" href="{% url 'prestador_new' %}">Cadastrar-se Prestador</a>
 
             		{% else %}
 
@@ -58,7 +48,13 @@
 				{% if user.is_authenticated %}
 					<li class="sidebar-nav-item">
 
-						<a class="js-scroll-trigger" href="{% url 'profile' %}">Profile</a>
+						<a class="js-scroll-trigger" href="{% url 'lista' %}">Profile</a>
+
+					</li>
+					<li class="sidebar-nav-item">
+
+						<a class="js-scroll-trigger" href="{% url 'prestador_new' %}">Cadastrar-se Prestador</a>
+
 
 					</li>
 				{% else %}
@@ -66,7 +62,17 @@
 
 
 				{% endif%}
+					<li class="sidebar-nav-item">
+					{% if user.is_authenticated %}
+						<a class="js-scroll-trigger" href="{% url 'logout' %}">Logout</a>
 
+            		{% else %}
+              			<a class="js-scroll-trigger" href="{% url 'login' %}">Login</a>
+            		{% endif%}
+
+
+
+				</li>
 
 
 			</ul>
@@ -79,7 +85,7 @@
 	<header class="masthead d-flex">
 		<div class="container text-center my-auto">
 			<div class="input-group mb-3">
-					<input type="text" class="form-control" placeholder="O que esta procurando?"  aria-describedby="basic-addon2">
+					<input type="text" class="form-control" placeholder="Qual profissão esta procurando?"  aria-describedby="basic-addon2">
 					<div class="input-group-append">
 						<button class="btn btn-outline-secondary" type="button"><a href="{% url 'result' %}"><i class="fas fa-search"></i></a></button>
 					</div>

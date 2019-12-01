@@ -16,7 +16,7 @@ def user_list(request):
     return render(request, 'user.html', {'users': persons})
 
 #temporario
-@login_required
+
 def resultado(request):
 
     return render(request, 'resultado.html')
@@ -61,6 +61,10 @@ def user_delete(request, id):
         return redirect('user_list')
     return render(request, 'user_delete_confirm.html', {'user': person})
 
+@login_required
+def usuario_list(request):
+    person = User.objects.all()
+    return render(request, 'user.html', {'users': person})
 
 # prestador de serviço views
 @login_required
