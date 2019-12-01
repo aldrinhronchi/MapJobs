@@ -17,10 +17,9 @@ class User(models.Model):
     def __str__(self):
         return self.first_name
 
-objetos = models.Manager()
 
 class TypeService(models.Model):
-    #prestador = models.ForeignKey(PrestadorServico, null=False, blank=False, on_delete=models.CASCADE)
+
     description = models.CharField(max_length=100, null=False, blank=False)
 
     def __str__(self):
@@ -75,7 +74,7 @@ class Avaliacao(models.Model):
     qualidade = models.IntegerField(null=False, blank=False)
     preco = models.IntegerField(null=False, blank=False)
     comentarios = models.TextField()
-    ip = models.GenericIPAddressField(null=False, blank=False)
+    ip = models.GenericIPAddressField(null=False, blank=False, default= '127.0.0.1')
     data_avaliacao = models.DateTimeField(auto_now=False, auto_now_add=True)
 
 

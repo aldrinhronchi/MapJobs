@@ -8,8 +8,19 @@ from .models import User, PrestadorServico, Avaliacao, Qualificacao
 from .forms import UserForm, PrestadorForm, AvaliacaoForm, QualificacaoForm
 
 
+class CreateUser(CreateView):
+    template_name = 'cadastro.html'
+    model = User()
+    fields = '__all__'
+    success_url = reverse_lazy("home")
 
-# Create your views here.
+
+class CriaPrestador(CreateView):
+    template_name = 'prestadores.html'
+    model = PrestadorServico()
+    fields = '__all__'
+    success_url = reverse_lazy("home")
+
 
 
 @login_required
@@ -30,19 +41,6 @@ def perfil(request):
     return render(request, 'profile.html')
 
 
-class CriaUser(CreateView):
-    template_name = 'cadastro.html'
-    model = User()
-    fields = '__all__'
-    success_url = reverse_lazy("home")
-
-
-
-class CriaPrestador(CreateView):
-    template_name = 'prestadores.html'
-    model = PrestadorServico()
-    fields = '__all__'
-    success_url = reverse_lazy("home")
 
 
 @login_required

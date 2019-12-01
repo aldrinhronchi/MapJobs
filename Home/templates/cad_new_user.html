@@ -4,13 +4,13 @@
 <html>
 	<head>
     	<meta charset="utf-8">
-    	<title>Cadastro de usuários</title>
+    	<title>MapJobs - Cadastro</title>
 	</head>
 	<body>
 	{% block main %}
 
-
-		<h3>Cadastro de usuários</h3>
+		<div class="container">
+		<h3>Cadastro de Usuário para sistema MapJobs</h3>
 		
 		<form method="post" class="form-group">
     	{% csrf_token %}       	
@@ -31,6 +31,7 @@
     
        		<input type="submit"class="btr btn-primary" value="Cadastrar">
 		</form>
+		</div>
 	{% endblock%}
 	</body>
 </html>

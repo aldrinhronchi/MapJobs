@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from django.contrib.auth.models import User as use
 
+
 def home(request):
 
     return render(request, 'index.html')
@@ -13,7 +14,7 @@ def my_logout(request):
     return redirect('home')
 
 
-def cadastrar_usuario(request):
+def register_user(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         use.objects.create_user(form.data['username'], None, form.data['password1'])

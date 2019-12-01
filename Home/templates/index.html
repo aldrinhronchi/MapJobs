@@ -34,21 +34,11 @@
 					<a class="js-scroll-trigger" href="{% url 'home' %}">MapJobs</a>
 				</li>
 
-				<li class="sidebar-nav-item">
-					{% if user.is_authenticated %}
 
-
-            		{% else %}
-
-
-						<a class="js-scroll-trigger" href="{% url 'cadastra_user' %}">Cadastrar</a>
-
-					{% endif%}
-				</li>
 				{% if user.is_authenticated %}
 					<li class="sidebar-nav-item">
 
-						<a class="js-scroll-trigger" href="{% url 'profile' %}">Profile</a>
+						<a class="js-scroll-trigger" href="{% url 'profile' %}">Perfil</a>
 
 					</li>
 					<li class="sidebar-nav-item">
@@ -59,8 +49,8 @@
 					</li>
 				{% else %}
 
-					<li>
-							<a class="js-scroll-trigger" href="{% url 'cadastrar_usuario' %}">Cadastrar</a>
+					<li class="sidebar-nav-item">
+							<a class="js-scroll-trigger" href="{% url 'register_new' %}">Cadastrar</a>
 					</li>
 
 				{% endif%}
