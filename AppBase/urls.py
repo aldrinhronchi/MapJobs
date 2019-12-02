@@ -29,7 +29,8 @@ urlpatterns = [
 
     path('user/list/', perfil, name="profile"),
     path('user/lista/', usuario_list, name="lista"),
-    path('prest/list/', resultado, name="result"),
+    path('prest/list/', prestador_list, name="result"),
+
     path('prest/list/qual/', qualificacao_list, name="qualificacao_list"),
     path('prest/aval/list/', avaliacao_list, name="avaliacao_list"),
     path('prest/qual/list/', qualificacao_list, name="qualificacao_list"),

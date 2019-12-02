@@ -21,6 +21,14 @@ class CriaPrestador(CreateView):
     fields = '__all__'
     success_url = reverse_lazy("home")
 
+# lista geral sem login
+def prestador_list(request):
+    prestador = PrestadorServico.objects.all()
+    return render(request, 'resultado.html', {'prest': prestador})
+
+def prestador_list_atuacao(request):
+    prestador = PrestadorServico.objects.filter
+    return render(request, 'resultado.html', {'atual': prestador})
 
 
 @login_required
@@ -68,11 +76,6 @@ def usuario_list(request):
     return render(request, 'user.html', {'users': person})
 
 # prestador de serviço views
-@login_required
-def prestador_list(request):
-    prestador = PrestadorServico.objects.all()
-    return render(request, 'prestador.html', {'prest': prestador})
-
 
 @login_required
 def prestador_new(request):

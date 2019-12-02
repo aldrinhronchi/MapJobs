@@ -8,53 +8,63 @@
 </head>
 
 <body>
+
+
     {% block main %}
+      <nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+
+
+    		<li class="breadcrumb-item active" aria-current="page">Resultado Pesquisa</li>
+
+
+  		</ol>
+	</nav>
     <div class="container">
 
-    <div class="border rounded-0 border-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-lg-3" style="width: 270px;"><img class="border rounded-circle" src="{% static 'img/1.jpg' %}" width="200" height="200"></div>
-                <div class="col-md-8">
-                    <div class="intro">
-                        <h2 class="text-capitalize text-left">Resultado um</h2>
-                        <p class="text-justify">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+
+        {% for prests in prest %}
+
+            <div class="border rounded-0 border-primary">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-3" style="width: 270px;">
+
+                            {% if prests.person.photo %}
+                                <img class="border rounded-circle" src="{{ prests.person.photo.url }}" width="200" height="200" alt="Era pra aparecer uma imagem aqui!">
+
+
+
+                            {% else %}
+                                <img class="border rounded-circle" src="" width="200" height="200" alt="Sem Imagem">
+
+                            {% endif %}
+
+
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="intro">
+                                <h2 class="text-capitalize text-left">{{ prests.person.first_name }}</h2>
+                                    <!--
+                                 {% for atuacao in atual %}
+                                 <p class="text-justify">{{ atuacao.tipoServicos }} </p>
+                                {% endfor %}
+                                 <p class="text-justify">{{ prests.descricao }} </p>
+                                    -->
+                            </div>
+                       </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="border rounded-0 border-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-lg-3"><img class="border rounded-circle" src="{% static 'img/2.jpg' %}" width="200" height="200"></div>
-                <div class="col-md-8">
-                    <div class="intro">
-                        <h2 class="text-capitalize text-left">Resultado dois</h2>
-                        <p class="text-justify">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="border rounded-0 border-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-lg-3"><img class="border rounded-circle" src="{%static 'img/3.jpg' %}" width="200" height="200"></div>
-                <div class="col-md-8">
-                    <div class="intro">
-                        <h2 class="text-capitalize text-left">Resultado tres</h2>
-                        <p class="text-justify">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="testimonials-clean"></div>
-    	<!-- Plugins JavaScript -->
+
+        {% endfor %}
+
 
     </div>
-{% endblock%}
+
+    {% endblock %}
 </body>
 
 </html>

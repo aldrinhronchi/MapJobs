@@ -12,33 +12,69 @@
 
 <body>
 {% block main %}
-    <div>
-        <div class="container">
-            <div class="row">
-                
-            </div>
-        </div>
-    </div>
+     <nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+
+
+    		<li class="breadcrumb-item active" aria-current="page">Cadastro Prestador de Serviços</li>
+
+
+  		</ol>
+	</nav>
+
     <div class="register-photo">
         <div class="form-container">
-            <div class="image-holder"></div>
+             <div class="image-holder"></div>
             <form method="post">
                 {% csrf_token %}
                 <h2 class="text-center"><strong>Criar</strong>&nbsp;Conta</h2>
-                <div class="form-group"><input class="form-control" type="text" name="first_name" placeholder="Nome"></div>
-                <div class="form-group"><input class="form-control" type="text" name="last_name" placeholder="Sobrenome"></div>
+                <div class="form-group"><input class="form-control" type="text" name="person" placeholder="Usuario" value="user.first_name"></div>
+                <div class="form-group"><input class="form-control" type="text" name="cpf" placeholder="Cpf - pessoa fisica"></div>
 
-                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Senha"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password-repeat" placeholder="Confirme sua senha"></div>
-                <div class="form-group"><input class="form-control" type="tel" name="wats" placeholder="Whatsapp"></div>
-                <div class="form-group"><input class="form-control" type="file" name="photo" placeholder="Foto"></div>
+                <div class="form-group"><input class="form-control" type="text" name="cnpj" placeholder="Cnpj - Mei/juridica"></div>
+                <div class="form-group">
+                    <textarea class="form-control" id="FormControlTextarea1" rows="3" placeholder="Descreva suas atividades"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="FormControlSelect2">Selecione áreas de atuação</label>
+                    <select multiple class="form-control" id="FormControlSelect2">
+                        <option>Diarista</option>
+                        <option>Pedreiro</option>
+                        <option>Eletricista</option>
+                        <option>Carpinteiro</option>
+                        <option>Marceneiro</option>
+                    </select>
+
+                 </div>
+
+                <div class="form-group">
+                    <label for="FormControlSelect3">Selecione cidades de atuação</label>
+                    <select multiple class="form-control" id="FormControlSelect3">
+                        <option>Fraiburgo</option>
+                        <option>Videira</option>
+                        <option>Monte Carlo</option>
+                        <option>Tangará</option>
+                        <option>Caçador</option>
+                    </select>
+
+
+                </div>
+                <div class="form-group"><input class="form-control" type="text" name="atuacaoEstado" placeholder="Estado"></div>
+                <div class="form-group"><input class="form-control" type="text" name="formaPagamento" placeholder="Formas de pagamento"></div>
+                <div class="form-group"><input class="form-control" type="text" name="outroTelefone" placeholder="outros telefones"></div>
+                <div class="form-group"><input class="form-control" type="text" name="RedesSociais" placeholder="Redes Sociais"></div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">Cadastrar</button>
+                     <a href="{% url 'home' %}"class="btn btn-danger btn-block">Cancelar</a>
+
+                </div>
 
                 <div class="form-group"></div>
 
 
             </form>
-        </div>
+
     </div>
 
 {% endblock%}

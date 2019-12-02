@@ -433,13 +433,7 @@
 	padding: 80px 0
 }
 
-.register-photo .image-holder {
-	display: table-cell;
-	width: auto;
-	background: url(../img/logo.png);
-	background: url(../img/logo.png);
-	background-size: cover
-}
+
 
 .register-photo .form-container {
 	display: table;

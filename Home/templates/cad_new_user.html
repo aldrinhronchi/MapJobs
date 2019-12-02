@@ -9,29 +9,55 @@
 	<body>
 	{% block main %}
 
-		<div class="container">
-		<h3>Cadastro de Usuário para sistema MapJobs</h3>
-		
-		<form method="post" class="form-group">
-    	{% csrf_token %}       	
-       		<label>Usuário:</label>
-       		{{ form.username }}
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    		<li class="breadcrumb-item active" aria-current="page">Cadastro</li>
+
+
+  		</ol>
+	</nav>
+
+
+
+		<div class="register-photo">
+        	<div class="form-container">
+
+            	<div class="image-holder"></div>
+				<form method="post" class="form-group">
+    				{% csrf_token %}
+					<label>Usuário:</label>
+					<br>
+       				{{ form.username }}
        
        		<br>    
     
-       		<label>Senha:</label>
-       		{{ form.password1 }}
+       				<label>Senha:</label>
+					<br>
+       				{{ form.password1 }}
        
        		<br>    
     	
-       		<label>Confirmação de senha:</label>
-       		{{ form.password2 }} 
+       				<label>Confirmar de senha:</label>
+					<br>
+					{{ form.password2 }}
        
        		<br>
     
-       		<input type="submit"class="btr btn-primary" value="Cadastrar">
-		</form>
+       				<input type="submit"class="btn btn-primary btn-block" value="Cadastrar">
+
+					 <a href="{% url 'home' %}"class="btn btn-danger btn-block">Cancelar</a>
+				<br>
+
+
+					<br>
+					<br>
+				</form>
+			</div>
 		</div>
+	</div>
 	{% endblock%}
+
+
 	</body>
 </html>
