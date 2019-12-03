@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+
+
+
+
+{% block main %}
+  <nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+			<li class="breadcrumb-item"><a href="{% url 'auxiliar' %}">Auxiliar</a></li>
+
+
+    		<li class="breadcrumb-item active" aria-current="page">Nova Cidade</li>
+
+
+  		</ol>
+	</nav>
+    <h3>Novo Cidade</h3>
+    <form method="post" ENCTYPE="multipart/form-data">
+
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+
+    </form>
+
+
+{% endblock %}
+

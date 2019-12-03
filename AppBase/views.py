@@ -4,12 +4,12 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.models import User as use
-from .models import User, PrestadorServico, Avaliacao, Qualificacao
-from .forms import UserForm, PrestadorForm, AvaliacaoForm, QualificacaoForm
+from .models import User, PrestadorServico, Avaliacao, Qualificacao, FormsPayment, Cities, States, TypeService
+from .forms import UserForm, PrestadorForm, AvaliacaoForm, QualificacaoForm, payForm, estForm, cityForm, activeForm
 
 
 class CreateUser(CreateView):
-    template_name = 'cadastro.html'
+    template_name = 'profile_cadastro.html'
     model = User()
     fields = '__all__'
     success_url = reverse_lazy("home")
@@ -23,16 +23,10 @@ class CriaPrestador(CreateView):
 
 # lista geral sem login
 def prestador_list(request):
-   # busca = pesquisa
-    #if busca:
 
-      #  prestador = PrestadorServico.objects.all()
-       # prestador = PrestadorServico.objects.filter(PrestadorServico.tipoServicos==busca)
-   # else:
     prestador = PrestadorServico.objects.all()
 
-
-    return render(request, 'resultado.html', {'prest': prestador})
+    return render(request, 'prestador_resultado.html', {'prest': prestador})
 
 
 
@@ -47,18 +41,158 @@ def perfil(request):
 def details(request, id):
     persons = get_object_or_404(PrestadorServico, pk=id)
 
-    return render(request, 'details.html', {'users': persons})
+    return render(request, 'prestador_details.html', {'users': persons})
 
 
 
 @login_required
-def user_update(request, id):
-    person = get_object_or_404(User, pk=id)
-    form = UserForm(request.POST or None, request.FILES or None, instance=person)
+def pay_update(request, id):
+    person = get_object_or_404(FormsPayment, pk=id)
+    form = payForm(request.POST or None, request.FILES or None, instance=person)
     if form.is_valid():
         form.save()
-        return redirect('user_list')
-    return render(request, 'user_form.html', {'form': form})
+        return redirect('pay_lists')
+    return render(request, 'payments_form.html', {'form': form})
+
+@login_required
+def pay_list(request):
+    pays = FormsPayment.objects.all()
+
+    return render(request, 'payments.html', {'pay': pays})
+
+
+@login_required
+def pay_new(request):
+    form = payForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('pay_lists')
+    return render(request, 'payments_form.html', {'form': form})
+
+@login_required
+def pay_delete(request, id):
+    pgto = get_object_or_404(FormsPayment, pk=id)
+    form = payForm(request.POST or None, request.FILES or None, instance=pgto)
+    if request.method == 'POST':
+        pgto.delete()
+        return redirect('pay_lists')
+    return render(request, 'payments_delete_confirm.html', {'pay': pgto})
+
+@login_required
+def est_update(request, id):
+    person = get_object_or_404(States, pk=id)
+    form = estForm(request.POST or None, request.FILES or None, instance=person)
+    if form.is_valid():
+        form.save()
+        return redirect('est_lists')
+    return render(request, 'est_form.html', {'form': form})
+
+@login_required
+def est_list(request):
+    pays = States.objects.all()
+
+    return render(request, 'est.html', {'est': pays})
+
+
+@login_required
+def est_new(request):
+    form = estForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('est_lists')
+    return render(request, 'est_form.html', {'form': form})
+
+@login_required
+def est_delete(request, id):
+    pgto = get_object_or_404(States, pk=id)
+    form = estForm(request.POST or None, request.FILES or None, instance=pgto)
+    if request.method == 'POST':
+        pgto.delete()
+        return redirect('est_lists')
+    return render(request, 'est_delete_confirm.html', {'est': pgto})
+
+
+@login_required
+def city_update(request, id):
+    person = get_object_or_404(Cities, pk=id)
+    form = cityForm(request.POST or None, request.FILES or None, instance=person)
+    if form.is_valid():
+        form.save()
+        return redirect('city_lists')
+    return render(request, 'city_form.html', {'form': form})
+
+@login_required
+def city_list(request):
+    pays = Cities.objects.all()
+
+    return render(request, 'city.html', {'city': pays})
+
+
+@login_required
+def city_new(request):
+    form = cityForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('city_lists')
+    return render(request, 'city_form.html', {'form': form})
+
+@login_required
+def city_delete(request, id):
+    pgto = get_object_or_404(Cities, pk=id)
+    form = cityForm(request.POST or None, request.FILES or None, instance=pgto)
+    if request.method == 'POST':
+        pgto.delete()
+        return redirect('city_lists')
+    return render(request, 'city_delete_confirm.html', {'city': pgto})
+
+
+@login_required
+def active_update(request, id):
+    person = get_object_or_404(TypeService, pk=id)
+    form = activeForm(request.POST or None, request.FILES or None, instance=person)
+    if form.is_valid():
+        form.save()
+        return redirect('active_lists')
+    return render(request, 'active_form.html', {'form': form})
+
+@login_required
+def active_list(request):
+    pays = TypeService.objects.all()
+
+    return render(request, 'active.html', {'active': pays})
+
+
+@login_required
+def active_new(request):
+    form = activeForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('active_lists')
+    return render(request, 'active_form.html', {'form': form})
+
+@login_required
+def active_delete(request, id):
+    pgto = get_object_or_404(TypeService, pk=id)
+    form = activeForm(request.POST or None, request.FILES or None, instance=pgto)
+    if request.method == 'POST':
+        pgto.delete()
+        return redirect('active_lists')
+    return render(request, 'active_delete_confirm.html', {'active': pgto})
+
+
+
+
+
+
+
+
+
+@login_required
+def auxs(request):
+
+    return render(request,'auxiliar.html')
+
+
 
 
 

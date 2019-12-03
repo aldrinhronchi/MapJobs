@@ -1,14 +1,14 @@
 
 {% extends 'base.html' %}
 
-{% block title %} Deletar Prestador {% endblock %}
+
 
 {% block main %}
 
 
 
 
-    <h2>Tem certeza que deseja deletar: {{ pres.person.first_name }}</h2>
+    <h2>Tem certeza que deseja deletar:</h2>
     <form method="post" ENCTYPE="multipart/form-data">
 
         {% csrf_token %}

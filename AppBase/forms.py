@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import User, PrestadorServico, Avaliacao, Qualificacao
+from .models import User, PrestadorServico, Avaliacao, Qualificacao, FormsPayment, Cities, States, TypeService
 
 
 class UserForm(ModelForm):
@@ -18,6 +18,28 @@ class AvaliacaoForm(ModelForm):
     class Meta:
         model = Avaliacao
         fields = ['pessoa', 'prestador', 'qualidade', 'preco', 'comentarios','ip']
+
+
+class payForm(ModelForm):
+    class Meta:
+        model = FormsPayment
+        fields = ['nome']
+
+class estForm(ModelForm):
+    class Meta:
+        model = States
+        fields = ['state']
+
+class cityForm(ModelForm):
+    class Meta:
+        model = Cities
+        fields = ['city']
+
+class activeForm(ModelForm):
+    class Meta:
+        model = TypeService
+        fields = ['description']
+
 
 
 class QualificacaoForm(ModelForm):

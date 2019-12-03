@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block main %}
+    <div class="row">
+        <div class="col">
+
+
+        </div>
+        <div class="col-6">
+                <h3>Listagem de Atividades</h3>
+               <ul class="list-group">
+                    {% for pays in active %}
+                        <li class="list-group-item">
+                           <a href="{% url 'active_updates' pays.id %}" class="button">       {{ pays.description }}                       </a>
+
+                            <a href="{% url 'delete_active' pays.id %}" class="button">           delete                 </a>
+
+                        </li>
+
+
+
+
+                    {% endfor %}
+
+
+                </ul>
+                <br>
+
+
+
+        </div>
+        <div class="col">
+            {% if user.is_authenticated %}
+                <p>Olá {{ user.username }}
+                    <a href="{% url 'logout' %}"><span class="badge badge-dark">Sair</span></a></p>
+            {% endif %}
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Desenvolvimento django Python</span>
+        </div>
+    </footer>
+
+{% endblock %}

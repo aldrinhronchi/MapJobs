@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block main %}
+
+
+
+
+    <h2>Tem certeza que deseja deletar:</h2>
+    <form method="post" ENCTYPE="multipart/form-data">
+
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">Deletar</button>
+    </form>
+
+{% endblock %}
+
+
