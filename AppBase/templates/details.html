@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+
+    {% block main %}
+      <nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+			<li class="breadcrumb-item"><a href="{% url 'result' %}">Resultado Pesquisa</a></li>
+
+    		<li class="breadcrumb-item active" aria-current="page">Detalhes</li>
+
+
+  		</ol>
+	</nav>
+	<div class="container">
+        <div class="row">
+            <div class="col-lg-4 text-center">
+                <img src="{{ users.person.photo.url }}" class="mx-auto img-fluid img-circle d-block" width="250" height="250" alt="avatar">
+
+
+
+            </div>
+            <div class="col-lg-8">
+            <h5 class="mb-3">Perfil do Usuario</h5>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <h6>Nome Completo</h6>
+
+                            <p>
+                                    {{ users.person.first_name }} {{ users.person.last_name }}
+                            </p>
+                        <h6>Email</h6>
+                            <p>
+                                    {{ users.person.email }}
+                            </p>
+                        <h6>Telefone</h6>
+                            <p>
+                                    {{ users.person.wats }}
+                            </p>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}
+
+</body>
+</html>

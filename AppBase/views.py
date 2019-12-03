@@ -1,9 +1,9 @@
-from django.contrib.auth.forms import UserCreationForm
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-
+from django.contrib.auth.models import User as use
 from .models import User, PrestadorServico, Avaliacao, Qualificacao
 from .forms import UserForm, PrestadorForm, AvaliacaoForm, QualificacaoForm
 
@@ -23,31 +23,31 @@ class CriaPrestador(CreateView):
 
 # lista geral sem login
 def prestador_list(request):
+   # busca = pesquisa
+    #if busca:
+
+      #  prestador = PrestadorServico.objects.all()
+       # prestador = PrestadorServico.objects.filter(PrestadorServico.tipoServicos==busca)
+   # else:
     prestador = PrestadorServico.objects.all()
+
+
     return render(request, 'resultado.html', {'prest': prestador})
 
-def prestador_list_atuacao(request):
-    prestador = PrestadorServico.objects.filter
-    return render(request, 'resultado.html', {'atual': prestador})
-
-
-@login_required
-def user_list(request):
-    persons = User.objects.all()
-    return render(request, 'user.html', {'users': persons})
-
-#temporario
-
-def resultado(request):
-
-    return render(request, 'resultado.html')
 
 
 @login_required
 def perfil(request):
+    persons = get_object_or_404(User, pk=8)
 
-    return render(request, 'profile.html')
+    return render(request, 'profile.html', {'users': persons})
 
+
+@login_required
+def details(request, id):
+    persons = get_object_or_404(PrestadorServico, pk=id)
+
+    return render(request, 'details.html', {'users': persons})
 
 
 
@@ -61,28 +61,13 @@ def user_update(request, id):
     return render(request, 'user_form.html', {'form': form})
 
 
-@login_required
-def user_delete(request, id):
-    person = get_object_or_404(User, pk=id)
-    form = UserForm(request.POST or None, request.FILES or None, instance=person)
-    if request.method == 'POST':
-        person.delete()
-        return redirect('user_list')
-    return render(request, 'user_delete_confirm.html', {'user': person})
-
-@login_required
-def usuario_list(request):
-    person = User.objects.all()
-    return render(request, 'user.html', {'users': person})
-
-# prestador de serviço views
 
 @login_required
 def prestador_new(request):
     form = PrestadorForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        return redirect('prestador_list')
+        return redirect('home')
     return render(request, 'prestador_form.html', {'form': form})
 
 

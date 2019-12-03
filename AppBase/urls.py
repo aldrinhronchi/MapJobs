@@ -1,11 +1,8 @@
-from django.contrib import admin
+
 from django.urls import path
-from .views import user_list
 from .views import CreateUser
 from .views import user_update
 from .views import prestador_list
-from .views import user_delete
-from .views import CriaPrestador
 from .views import prestador_delete
 from .views import prestador_update
 from .views import avaliacao_new
@@ -16,21 +13,19 @@ from .views import qualificacao_new
 from .views import qualificacao_list
 from .views import qualificacao_update
 from .views import qualificacao_delete
-from .models import User, PrestadorServico
-from .views import resultado, perfil, usuario_list
+from .models import User
+from .views import perfil, prestador_new, details
 
 urlpatterns = [
 
     path('user/new/', CreateUser.as_view(model=User), name="cadastra_user"),
-    path('prest/new/', CriaPrestador.as_view(model=PrestadorServico), name="prestador_new"),
-
-
-
-
+    path('prest/new/', prestador_new, name="prestador_new"),
+    path('user/list/details/<int:id>', details, name="details"),
     path('user/list/', perfil, name="profile"),
-    path('user/lista/', usuario_list, name="lista"),
     path('prest/list/', prestador_list, name="result"),
 
+
+    # implementar
     path('prest/list/qual/', qualificacao_list, name="qualificacao_list"),
     path('prest/aval/list/', avaliacao_list, name="avaliacao_list"),
     path('prest/qual/list/', qualificacao_list, name="qualificacao_list"),
@@ -40,7 +35,7 @@ urlpatterns = [
     path('prest/update/<int:id>/', prestador_update, name="prestador_update"),
     path('prest/aval/update/<int:id>/', avaliacao_update, name="avaliacao_update"),
     path('prest/qual/update/<int:id>/', qualificacao_update, name="qualificacao_update"),
-    path('delete/<int:id>/', user_delete, name="user_delete"),
+
     path('prest/delete/<int:id>/', prestador_delete, name="prestador_delete"),
     path('prest/aval/delete/<int:id>/', avaliacao_delete, name="avaliacao_delete"),
     path('prest/qual/delete/<int:id>/', qualificacao_delete, name="qualificacao_delete"),

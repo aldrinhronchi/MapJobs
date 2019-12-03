@@ -5,7 +5,7 @@
 
 <head>
 
-
+<!-- precisa de melhorias-->
 
 
 </head>
@@ -29,16 +29,16 @@
             <form method="post">
                 {% csrf_token %}
                 <h2 class="text-center"><strong>Criar</strong>&nbsp;Conta</h2>
-                <div class="form-group"><input class="form-control" type="text" name="person" placeholder="Usuario" value="user.first_name"></div>
+                <div class="form-group"><input class="form-control" type="text" name="person" placeholder="Usuario" value="{{ user.username }}" required></div>
                 <div class="form-group"><input class="form-control" type="text" name="cpf" placeholder="Cpf - pessoa fisica"></div>
 
                 <div class="form-group"><input class="form-control" type="text" name="cnpj" placeholder="Cnpj - Mei/juridica"></div>
                 <div class="form-group">
-                    <textarea class="form-control" id="FormControlTextarea1" rows="3" placeholder="Descreva suas atividades"></textarea>
+                    <textarea class="form-control" id="FormControlTextarea1" rows="5" placeholder="Descreva suas atividades" name="descricao" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="FormControlSelect2">Selecione áreas de atuação</label>
-                    <select multiple class="form-control" id="FormControlSelect2">
+                    <select multiple class="form-control" id="FormControlSelect2" name="tipoServicos" required>
                         <option>Diarista</option>
                         <option>Pedreiro</option>
                         <option>Eletricista</option>
@@ -50,18 +50,41 @@
 
                 <div class="form-group">
                     <label for="FormControlSelect3">Selecione cidades de atuação</label>
-                    <select multiple class="form-control" id="FormControlSelect3">
+                    <select multiple class="form-control" id="FormControlSelect3" name="atuacaoCidade" required>
                         <option>Fraiburgo</option>
                         <option>Videira</option>
                         <option>Monte Carlo</option>
-                        <option>Tangará</option>
-                        <option>Caçador</option>
+
                     </select>
 
 
                 </div>
-                <div class="form-group"><input class="form-control" type="text" name="atuacaoEstado" placeholder="Estado"></div>
-                <div class="form-group"><input class="form-control" type="text" name="formaPagamento" placeholder="Formas de pagamento"></div>
+                <div class="form-group">
+                    <label for="FormControlSelect4">Selecione estados de atuação</label>
+                    <select multiple class="form-control" id="FormControlSelect4" name="atuacaoEstado" required>
+                        <option>Santa Catarina</option>
+                        <option>Paraná</option>
+
+
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="FormControlSelect5">Selecione Forma de Pagamento</label>
+                    <select multiple class="form-control" id="FormControlSelect5" name="formaPagamento" required>
+                        <option>Dinheiro</option>
+                        <option>Cheque</option>
+
+
+                    </select>
+
+
+
+
+                </div>
+
+
+
                 <div class="form-group"><input class="form-control" type="text" name="outroTelefone" placeholder="outros telefones"></div>
                 <div class="form-group"><input class="form-control" type="text" name="RedesSociais" placeholder="Redes Sociais"></div>
                 <div class="form-group">
